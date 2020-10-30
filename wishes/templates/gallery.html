@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>AY IN PICTURES</h1>
+<div class="row">
+    {% for image in images %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static image.image %}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-text">{{ image.desc }}</h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

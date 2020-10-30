@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-9">
+    <h1>A birthday wish from {{ wish.author }}</h1>
+    <small>
+        <p> Created on {{ wish.created_on.date }}</p>
+    </small>
+    <p>{{ wish.body | linebreaks }}</p>
+    <h5>Leave a reply:</h5>
+    <form action="/wishes/{{ wish.pk }}/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.msg }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <h6>Replies:</h6>
+    {% for reply in replies %}
+    <p>
+        On {{reply.created_on.date }}&nbsp;
+        You wrote:
+    </p>
+    <p>{{ reply.msg }}</p>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}

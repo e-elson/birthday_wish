@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-9">
+    <h1>SEND AY A WISH ON HER BIRTHDAY</h1>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.author }}
+        </div>
+        <div class="form-group">
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            {{ form.desc }}
+        </div>
+        <div class="form-group" required>
+            {{ form.body }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-nuetral">Reset</button>
+    </form>
+
+</div>
+{% endblock %}

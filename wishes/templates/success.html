@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="alert alert-success">
+  <strong>Success!</strong> Thank you {{ author }}, your wish has been recorded and would be published upon vetting.
+    <p> Please see your wish below:</p>
+</div>
+<div class="col-md-7">
+    <div class="card">
+        <div class="card-body">
+            <p>{{ message }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

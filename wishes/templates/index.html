@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>A BABE AND MORE!</h1>
+<div class="row">
+    <div class="col-md-7">
+        <p>She's all shades of love and loyalty. It will also be off if I don't
+        categorically state her love for God. Loving God is also seen in her comportment and the way she relates
+        with people, of all class. Her selflessness is unfathomable</p>
+        <p>Ayomi, as she is fondly called literally brings joy to lives around her.</p>
+        <p>She is a good fashion designer and works well with other fashion designers to bring quality and excellence to people's looks.</p>
+        <p>She has a thriving career and has worked as a consultant for several international NGO's. She's currently
+        pursuing a masters degree at the University of Ibadan, Nigeria.</p>
+    </div>
+    <div class="col-md-5">
+        <img src="{% static project.image %}" alt="FINE GEH" width="100%">
+    </div>
+    <br>
+</div>
+<div class="row">
+    <div class="col-md-7">
+        <p>Today, the 23rd of November happens, to be her birthday.</p>
+        <p>You can check <a href="{% url 'gallery' %}">AY in pictures</a> and <a href="{% url 'wish_list' %}">view (part of) all wishes</a>.</p>
+        <p>To celebrate her, you could do any, or both, of the following:</p>
+        <a class="btn btn-primary" href="{% url 'new' %}">Send a wish</a>
+        &ensp; &ensp; &ensp;
+        <a class="btn btn-primary" href="{% url 'new' %}">Give a cash gift for charity</a>
+    </div>
+</div>
+
+{% endblock %}
