@@ -3,9 +3,14 @@
 <div class="col-md-9">
     <h1>A birthday wish from {{ wish.author }}</h1>
     <small>
-        <p> Created on {{ wish.created_on.date }}</p>
+        <p> Created on {{ wish.created_on.date }} | {{ wish.created_on.time }}</p>
     </small>
     <p>{{ wish.body | linebreaks }}</p>
+    <small>
+        <p><strong>A short description of {{ wish.author }}:</strong><br>
+            {{ wish.desc }}
+        </p>
+    </small>
     <h5>Leave a reply:</h5>
     <form action="/wishes/{{ wish.pk }}/" method="post">
         {% csrf_token %}
