@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User, Group
 from .models import Wish, Gallery, Reply
 from .forms import WishForm, ReplyForm
 from django.conf import settings
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -61,6 +62,7 @@ def waiting(request):
     }
     return render(request, 'wish_list.html', context)
 
+@login_required
 def wish_detail(request,pk):
     wish = Wish.objects.get(pk=pk)
     form = ReplyForm()
@@ -87,6 +89,7 @@ def wish_detail(request,pk):
     }
     return render(request, 'wish_detail.html', context)
 
+@login_required
 def reply(request,pk):
     wish = Wish.objects.get(pk=pk)
     form = WishForm()
@@ -115,5 +118,3 @@ def gallery(request):
         'images': images,
     }
     return render(request, 'gallery.html', context)
-
-
