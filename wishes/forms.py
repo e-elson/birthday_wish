@@ -17,7 +17,7 @@ class WishForm(forms.Form):
                              })
                              )
 
-    desc = forms.CharField(max_length=50,
+    description = forms.CharField(max_length=50,
                              widget=forms.TextInput(attrs={
                                  'class': 'form-control',
                                  'placeholder': 'A short description of yourself/who AY is to you or how you know her'

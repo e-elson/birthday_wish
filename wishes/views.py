@@ -24,7 +24,7 @@ def new(request):
             wish = Wish(
                 author = form.cleaned_data['author'],
                 email = form.cleaned_data['email'],
-                desc = form.cleaned_data['desc'],
+                desc = form.cleaned_data['description'],
                 body = form.cleaned_data['body'],
             )
             wish.save()
