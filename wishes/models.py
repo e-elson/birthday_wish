@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Wish(models.Model):
     author = models.CharField(max_length=40)
-    desc = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
     email = models.CharField(max_length=40)
     body = models.TextField(max_length=500)
     status = models.CharField(max_length=15, default="Not Published")
