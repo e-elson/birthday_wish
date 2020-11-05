@@ -1,0 +1,48 @@
+
+body {
+    background-color: rgb(172, 52, 156);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 20px;
+    
+}
+
+h1 {
+    color: yellow;
+    text-align: center;
+
+}
+
+.firstparagraph {
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+img {
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 50px ;
+    width: 100%;
+}
+.myrow {
+    padding-top: 20px;
+}
+.bottomrow {
+    text-align: center;
+    padding-top: 30px;
+}
+p{
+    color: white;
+}
+
+
+
+a {
+    color: yellow;
+}
+.btn-primary {
+    padding: 12px;
+    background-color:purple;
+    text-decoration: none;
+    color: yellow;
+}
