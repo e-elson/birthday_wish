@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title> Celebrating Ayomis Birthday</title>
+    <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+{% block content %}
+
+<body>
 <h1>WISH LIST</h1>
 <div class="row">
 {% for wish in wishes %}
@@ -14,4 +26,5 @@
         </div>
     {% endfor %}
 </div>
+</body>
 {% endblock %}
