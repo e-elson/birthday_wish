@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>GIVE FOR CHARITY!</h1>
+<div class="row">
+    <div class="col-md-7">
+        <p>Ayomikun Adesola Abiola is based in Ilorin. She is a high-spirited individual who,
+            as her name denotes, literally brings joy to the people around her.</p>
+        <p>This year, on the occasion of her birthday, she is particular about giving back to
+            society and would love to focus on less privileged women and children in Ilorin.
+            She intends to give clothes and food items to at least 10 families with considerably
+            very low income.</p>
+        <p>Although, her birthday comes up on November 23rd, this campaign will end on December 15th.</p>
+        <p>If you would love to give to support this project, please click any of the links below:</p>
+        <a class="btn btn-primary" href="https://donate-ng.com/campaign/charity-donations-for-the-less-privilege">
+            Nigerian Givers</a>
+        &ensp; &ensp; &ensp;
+        <a class="btn btn-primary" href="https://donate-ng.com/campaign/charity-donations-for-the-less-privilege">
+            International Givers</a>
+        </p>
+    </div>
+    <div class="col-md-5">
+        <img src="{% static img.image %}" alt="Charity donations" width="100%">
+    </div>
+    <br>
+</div>
+
+{% endblock %}
