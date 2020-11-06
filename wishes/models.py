@@ -27,3 +27,7 @@ class Gallery(models.Model):
     desc = models.CharField(max_length=60)
     def __str__(self):
         return self.desc
+
+
+class Image(models.Model):
+    image = models.FilePathField(path='/images')

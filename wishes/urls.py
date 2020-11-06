@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/', views.wish_detail, name="wish_detail"),
     path('<int:pk>/reply', views.reply, name="reply"),
     path('gallery', views.gallery, name="gallery"),
+    path('give/', views.give, name="give")
 ]

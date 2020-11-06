@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User, Group
-from .models import Wish, Gallery, Reply
+from .models import Wish, Gallery, Reply, Image
 from .forms import WishForm, ReplyForm
 from django.conf import settings
 from django.core.mail import send_mail
@@ -11,8 +11,10 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     wishes = Wish.objects.all()
+    image = Image.objects.get(pk=2)
     context = {
         'wishes': wishes,
+        'image': image,
     }
     return render(request, 'index.html', context)
 
@@ -24,10 +26,9 @@ def new(request):
             wish = Wish(
                 author = form.cleaned_data['author'],
                 email = form.cleaned_data['email'],
-                desc = form.cleaned_data['description'],
+                description = form.cleaned_data['description'],
                 body = form.cleaned_data['body'],
             )
-            wish.save()
             author = form.cleaned_data['author']
             message = form.cleaned_data['body']
             email = form.cleaned_data['email']
@@ -41,7 +42,7 @@ def new(request):
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email, 'elso4real@yahoo.com']
             send_mail(subject, message, email_from, recipient_list)
-
+            wish.save()
             return render(request, 'success.html', context)
     context = {
         'form':form,
@@ -74,9 +75,15 @@ def wish_detail(request,pk):
                 wish=wish,
             )
             msg = str(form.cleaned_data['msg'])
+            wish_msg = wish.body
             print(msg)
             subject = f'THANK YOU {wish.author}'
-            message = f'{msg}'
+            message = f'Hi {wish.author},\n' \
+                      f'Thank you for your wish.\n \n' \
+                      f'Your message:\n' \
+                      f'{wish_msg}\n\n' \
+                      f'Ayomikun\'s reply:\n' \
+                      f'{msg}'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [wish.email, 'elso4real@yahoo.com']
             send_mail(subject, message, email_from, recipient_list)
@@ -118,3 +125,10 @@ def gallery(request):
         'images': images,
     }
     return render(request, 'gallery.html', context)
+
+def give(request):
+    img = Image.objects.get(pk=1)
+    context = {
+        'img': img,
+    }
+    return render(request, 'give.html', context)
