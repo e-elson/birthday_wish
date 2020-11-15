@@ -2,9 +2,12 @@
 {% load static %}
 
 {% block content %}
-<h1>GIVE FOR CHARITY!</h1>
-<div class="row">
-    <div class="col-md-7">
+<div class="detail-2">
+    <h1>GIVE FOR CHARITY!</h1>
+    <aside class="give-img" id="sidebar">
+        <img src="{% static 'images/charity.jpeg' %}" alt="Charity donations">
+    </aside>
+    <article class="give" id="main">
         <p>Ayomikun Adesola Abiola is based in Ilorin. She is a high-spirited individual who,
             as her name denotes, literally brings joy to the people around her.</p>
         <p>This year, on the occasion of her birthday, she is particular about giving back to
@@ -13,16 +16,13 @@
             very low income.</p>
         <p>Although, her birthday comes up on November 23rd, this campaign will end on December 15th.</p>
         <p>If you would love to give to support this project, please click any of the links below:</p>
-        <a class="btn btn-primary" href="https://donate-ng.com/campaign/charity-donations-for-the-less-privilege">
-            Nigerian Givers</a>
+        <button><a href="https://donate-ng.com/campaign/charity-donations-for-the-less-privilege">
+            Nigerian Givers</a></button>
         &ensp; &ensp; &ensp;
-        <a class="btn btn-primary" href="https://donate-ng.com/campaign/charity-donations-for-the-less-privilege">
-            International Givers</a>
+        <button><a href="https://donate-ng.com/campaign/charity-donations-for-the-less-privilege">
+            International Givers</a></button>
         </p>
-    </div>
-    <div class="col-md-5">
-        <img src="{% static img.image %}" alt="Charity donations" width="100%">
-    </div>
+    </article>
     <br>
 </div>
 

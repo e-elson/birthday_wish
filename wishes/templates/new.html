@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-
-<div class="col-md-9">
-    <h1>SEND AY A WISH ON HER BIRTHDAY</h1>
-    <hr>
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.as_p }}
+<div class="body-1">
+    <div class="container-1">
+        <div class="form-container">
+            <form method="POST">
+                {% csrf_token %}
+                <h2>Drop a Birthday Wish for AY...</h2>
+                {{ form }}
+                <button type="submit">Drop</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="reset" class="btn btn-nuetral">Reset</button>
-    </form>
-
+    </div>
 </div>
 {% endblock %}

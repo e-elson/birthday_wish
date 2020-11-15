@@ -1,32 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="col-md-9">
-    <h1>A birthday wish from {{ wish.author }}</h1>
-    <small>
-        <p> Created on {{ wish.created_on.date }} | {{ wish.created_on.time }}</p>
-    </small>
-    <p>{{ wish.body | linebreaks }}</p>
-    <small>
-        <p><strong>A short description of {{ wish.author }}:</strong><br>
-            {{ wish.description }}
-        </p>
-    </small>
-    <h5>Leave a reply:</h5>
-    <form action="/wishes/{{ wish.pk }}/" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.msg }}
+
+<div class="detail">
+    <div class="container">
+        <h1>A birthday wish from {{ wish.author }}</h1>
+        <small>Dropped on {{ wish.created_on.date }} | {{ wish.created_on.time }}</small>
+        <p>{{ wish.body | linebreaks }}</p>
+        <small>
+            <p><strong>Who is {{ wish.author }}:</strong><br>
+                {{ wish.description }}
+            </p>
+        </small>
+        <div class="reply-form">
+            <h4>Leave a reply:</h4>
+            <form action="/wishes/{{ wish.pk }}/" method="post">
+                {% csrf_token %}
+                <div class="">
+                    {{ form.msg }}
+                </div>
+                <button type="submit" class="btn btn-primary">Reply this wish</button>
+            </form>
+            <h4>Replies:</h4>
+            {% for reply in replies %}
+            <p>
+                On {{reply.created_on.date }}&nbsp;
+                You wrote:
+            </p>
+            <p>{{ reply.msg }}</p>
+            <hr>
+            {% endfor %}
         </div>
-        <button type="submit" class="btn btn-primary">Reply this wish</button>
-    </form>
-    <h6>Replies:</h6>
-    {% for reply in replies %}
-    <p>
-        On {{reply.created_on.date }}&nbsp;
-        You wrote:
-    </p>
-    <p>{{ reply.msg }}</p>
-    <hr>
-    {% endfor %}
+    </div>
+    </div>
 </div>
 {% endblock %}

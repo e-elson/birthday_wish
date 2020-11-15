@@ -2,15 +2,13 @@
 {% load static %}
 
 {% block content %}
-<div class="alert alert-success">
-  <strong>Success!</strong> Thank you {{ author }}, your wish has been recorded and would be published upon vetting.
-    <p> Please see your wish below:</p>
-</div>
-<div class="col-md-7">
-    <div class="card">
-        <div class="card-body">
-            <p>{{ message }}</p>
-        </div>
+<div class="detail-2">
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong>Success!</strong>
+        Thank you {{ author }}, your wish has been recorded and would be published upon vetting.
     </div>
+    <p style="color:#333;"> Please see your wish below:</p>
+    <p style="color:#333;">{{ message }}</p>
 </div>
 {% endblock %}

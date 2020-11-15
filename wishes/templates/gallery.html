@@ -1,14 +1,57 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>AY IN PICTURES</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+<style>
+    *{
+    font-family: 'Spectral', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    a:hover{
+    text-decoration:none;
+    color: #ff4b2b;
+    }
+    #listbtn:hover{
+    color: #333;
+    }
+    .row{
+    padding: 30px;
+    }
+    .col-md-4{
+    padding-bottom: 30px;
+    }
+    .container #title h1{
+    padding-bottom: 25px;
+    }
+    @media(max-width: 560px){
+    .row{
+    padding: 30px;
+    margin-top: 70px;
+    }
+    header .container{
+		position: fixed;
+		width: 100%;
+		top: 0;
+		background-color: #333;
+		z-index: 10000;
+		padding-bottom: 10px;
+		border-bottom: 3px #ff4b2b solid;
+		padding-top: 30px;
+	}
+	.container #title h1{
+    padding-bottom: 25px;
+    }
+    }
+</style>
+<h1></h1>
 <div class="row">
     {% for image in images %}
     <div class="col-md-4">
         <div class="card mb-2">
             <img src="{% static image.image %}" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-text">{{ image.desc }}</h5>
+                <h6 class="card-text">{{ image.desc }}</h6>
             </div>
         </div>
     </div>
